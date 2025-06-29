@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Aloyce Developer Documentation</title>
+  <link rel="stylesheet" href="style.css" />
+    <!-- Prism.js core -->
+  <link rel="stylesheet" href="code_blocks.css">
+  <script src="syntax_highlighting.js"></script>
+</head>
+<body>
+  <!-- Topbar -->
+  <header class="topbar">
+    <div class="topbar-container">
+      <nav class="nav-links">
+        <a href="index.html" class="logo">
+          <img src="aloycian.svg" alt="Aloycian Logo" class="logo-img" />
+        </a>
+        <a href="#">Discover</a>
+        <a href="#">Design</a>
+        <a href="#">Develop</a>
+        <a href="#">Distribute</a>
+        <a href="#">Support</a>
+        <a href="documentation.html">Documentation</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Subbar -->
+  <div class="subbar" id="subbar"> 
+    <div class="subbar-container">
+      <img src="documentation.svg" alt="Docs Icon" class="subbar-icon" />
+      <span class="subbar-text">Documentation</span>
+    </div>
+  </div>
+
+  <!-- Sidebar -->
+<aside class="sidebar">
+  <nav>
+    <ul>
+      <li>
+        <a href="#" class="tab-link active" data-target="getting-started">
+          <img src="tabs.svg" alt="" class="sidebar-icon" />
+          <span class="sidebar-label">Getting Started</span>
+        </a>
+      </li>
+      <li>
+        <a href="#" class="tab-link" data-target="installation">
+          <img src="tabs.svg" alt="" class="sidebar-icon" />
+          <span class="sidebar-label">Installation</span>
+        </a>
+      </li>
+      <li>
+        <a href="#" class="tab-link" data-target="api">
+          <img src="tabs.svg" alt="" class="sidebar-icon" />
+          <span class="sidebar-label">API Reference</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</aside>
+
+  <!-- Main content -->
+  <main>
+    <section id="getting-started">
+      <div class="banner">
+        <div class="banner-content">
+          <div class="banner-text">
+            <span class="banner-subtitle">Framework</span>
+            <h2 class="banner-title">Your Framework Name</h2>
+            <p class="banner-description">A powerful toolkit for building modern web applications.</p>
+          </div>
+          <img src="tabs.svg" alt="Framework Icon" class="banner-icon" />
+        </div>
+      </div>
+
+        <div class="section-heading">
+          <h1 class="section-title">Overview</h1>
+        </div>
+        <div class="section-description">
+          <h1 class="section-description-desc">hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello </h1>
+        </div>
+        <div class="section-container">
+          <div class="note-box">
+            <div class="note-label">Note</div>
+            <p>
+              visionOS doesn’t support Live Activities. Requests to start a Live Activity from a compatible iPad or iPhone app fail.
+            </p>
+          </div>
+        </div>
+        <div class="technical-terms">
+          <h1 class="technical-terms-desc">hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello  </h1>
+        </div>
+        <div class="full-width-image-container">
+          <img src="spunkbob.jpg" alt="Descriptive Alt Text" class="full-width-image" />
+        </div>
+        <hr class="custom-divider" />
+
+        <div class="callout-box important">
+          <p class="callout-title">Important</p>
+          <p>
+            You must add the Family Controls capability to your app before you call the 
+            <a href="#" class="link-text">Visit the Developer Hub</a> or 
+            <a href="#" class="link-text">Visit the Developer Hub</a> methods. This capability adds the 
+            <code>Family_Controls</code> entitlement to your app. Before submitting your app to the App Store, 
+            you must <a href="#" class="link-text">Visit the Developer Hub</a> to use the entitlement. For more information, see 
+            <a href="#" class="link-text">Visit the Developer Hub</a>.
+          </p>
+        </div>
+
+<div class="section-container">
+<div class="codeblock-container">
+<pre><code class="language-luau">
+local Players = game:GetService("Players")
+
+if Players then
+  print("Found Players")
+end
+</code></pre>
+</div>
+</div>
+
+        <div class="section-heading">
+          <h1 class="section-title">Overview</h1>
+        </div>
+        <div class="section-heading">
+          <h1 class="section-subtitle">Topics</h1>
+        </div>
+        <hr class="space" />
+
+      <div class="link-block">
+        <div class="link-row">
+          <img src="doc.svg" alt="Icon" class="link-icon" />
+          <a href="#" class="link-text">Visit the Developer Hub</a>
+        </div>
+        <p class="link-description">A central place for API reference, tutorials, and support.</p>
+      </div>
+
+
+    </section>
+    <!-- More sections -->
+
+    <section id="installation" style="display: none;">
+      <div class="banner">
+        <div class="banner-content">
+          <div class="banner-text">
+            <span class="banner-subtitle">Framework</span>
+            <h2 class="banner-title">You're Cute</h2>
+            <p class="banner-description">A powerful toolkit for building modern web applications.</p>
+          </div>
+          <img src="tabs.svg" alt="Framework Icon" class="banner-icon" />
+        </div>
+      </div>
+    </section>
+     
+  </main>
+
+  <script>
+    document.querySelectorAll('.sidebar a').forEach(link => {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        // Remove active class from all links
+        document.querySelectorAll('.sidebar a').forEach(l => l.classList.remove('active'));
+        this.classList.add('active');
+
+        // Hide all sections
+        document.querySelectorAll('main section').forEach(sec => {
+          sec.style.display = 'none';
+        });
+
+        // Show the selected section
+        const targetId = this.getAttribute('data-target');
+        const targetSection = document.getElementById(targetId);
+        if (targetSection) {
+          targetSection.style.display = 'block';
+        }
+      });
+    });
+
+  </script>
+
+    <script>
+
+    const subbar = document.getElementById('subbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 0) {
+        subbar.classList.add('scrolled');
+      } else {
+        subbar.classList.remove('scrolled');
+      }
+    });
+
+  Prism.languages.luau = {
+    'comment': /--.*|--\[\[[\s\S]*?\]\]/,
+    'string': /(["'])(?:\\.|(?!\1)[^\\\r\n])*\1/,
+    'number': /\b\d+(\.\d+)?\b/,
+    'keyword': /\b(?:if|then|else|elseif|end|function|local|return|for|in|do|while|repeat|until|break|and|or|not|nil|true|false)\b/,
+    'function': /\b(print|warn|require|GetService|Connect|WaitForChild)\b/,
+    'operator': /[-+*/%=<>!#^&|~]/,
+    'punctuation': /[{}[\];(),.:]/,
+    'variable': /\b\w+\b/
+  };
+  </script>
+</body>
+</html>

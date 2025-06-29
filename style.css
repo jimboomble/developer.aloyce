@@ -1,0 +1,525 @@
+/* 1. Load fonts */
+@font-face {
+  font-family: "Inter Medium";
+  src: url("./fonts/Inter_18pt-Regular.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter Semi Bold";
+  src: url("./fonts/Inter_18pt-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter Bold";
+  src: url("./fonts/Inter_18pt-Bold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* 2. Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 3. Base body styles */
+body {
+  font-family: "Inter Medium", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 500;
+  background-color: #000;
+  color: #fff;
+}
+
+/* 4. Topbar */
+.topbar {
+  background-color: #1d1d1f;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  z-index: 999;
+  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+}
+
+.topbar-container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 14px;
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+  font-family: inherit;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  opacity: 1;
+}
+
+.logo-img {
+  height: 20px;
+  width: auto;
+  display: block;
+}
+
+/* 5. Subbar */
+.subbar {
+  position: fixed;
+  top: 48px;
+  left: 0;
+  right: 0;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  z-index: 998;
+  background-color: transparent;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.subbar.scrolled {
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.subbar-icon {
+  height: 20px;
+  width: auto;
+  display: block;
+}
+
+.subbar-text {
+  font-family: "Inter Bold", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 19px;
+  color: #fff;
+  opacity: 1;
+  margin-left: 4px;
+  font-weight: 600;
+}
+
+.subbar-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 20px;
+  gap: 8px;
+}
+
+.subbar-icon {
+  height: 20px;
+  width: auto;
+  display: block;
+}
+
+.subbar-text {
+  font-family: "Inter Bold", inherit;
+  font-size: 19px;
+  color: #fff;
+  opacity: 1;
+  margin-left: 4px;
+  font-weight: 600;
+}
+
+/* 6. Sidebar */
+.sidebar {
+  position: fixed;
+  top: 95px;       /* 48px topbar + 48px subbar */
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 500px;
+  background-color: #000;
+  overflow-y: auto;
+  padding: 15px;
+  box-shadow: inset -1px 0 0 rgba(255,255,255,0.1);
+  z-index: 997;
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar li + li {
+  margin-top: 0px;
+}
+
+.sidebar a {
+  display: flex;
+  align-items: center;
+  width: calc(100% - 0px);
+  padding: 10px;
+  border-radius: 6px;
+  text-decoration: none;
+  color: #fff;
+  font-size: 14px;
+  opacity: 0.8;
+  transition:
+    background-color 0.2s ease,
+    opacity 0.2s ease,
+    font-weight 0.2s ease;
+  font-family: "Inter Semi Bold", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.sidebar a:hover {
+  background-color: rgba(0, 112, 243, 0.2);
+  opacity: 1;
+}
+
+.sidebar a.active {
+  font-family: "Inter Bold", inherit;
+  background-color: #333;
+  opacity: 1;
+}
+
+.sidebar a.active .sidebar-label {
+  font-family: "Inter Bold", inherit;
+  font-weight: 700;
+}
+
+.bigText {
+  font-family: "Inter Bold", inherit;
+  font-weight: 700;
+}
+
+.sidebar-icon {
+  height: 20px;
+  width: auto;
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+
+.sidebar-label {
+  flex: 1;
+  font-family: inherit;
+  font-weight: 500;
+}
+
+/* 7. Main content */
+main {
+  margin-top: 96px;    /* under topbar + subbar */
+  margin-left: 500px;  /* sidebar width + 20px gutter */
+  background-color: #000;
+  color: #fff;
+}
+
+/* Banner styles */
+.banner {
+  width: 100%;
+  margin-bottom: 40px;
+  background: linear-gradient(to top, #000e1c, #002e5b);
+  position: relative;
+  overflow: hidden;
+  border-radius: 0;
+}
+
+.banner-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 60px 60px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.banner-text {
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+}
+
+.banner-subtitle {
+  font-size: 16px;
+  opacity: 0.5;
+  font-family: "Inter Medium", sans-serif;
+}
+
+.banner-title {
+  font-size: 36px;
+  color: #fff;
+  font-weight: 700;
+  margin: 8px 0;
+}
+
+.banner-description {
+  font-size: 16px;
+  color: #fff;
+  font-family: "Inter Medium", sans-serif;
+  max-width: 600px;
+}
+
+.banner-icon {
+  position: absolute;
+  right: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 180px;
+  height: auto;
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+.section-heading {
+  padding: 0 60px;
+  margin-bottom: 10px;
+}
+
+.section-title {
+  font-size: 36px;
+  font-weight: 700;
+  font-family: "Inter Bold", -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #fff;
+}
+
+.section-subtitle {
+  font-size: 26px;
+  font-weight: 700;
+  font-family: "Inter Bold", -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #fff;
+}
+
+
+.section-description {
+  padding: 0 60px;
+  margin-bottom: 40px;
+}
+
+.section-description-desc {
+  font-size: 17px;
+  font-weight: 500;
+  font-family: "Inter Medium", -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #fff;
+}
+
+.section-container {
+  padding: 0 60px;
+  max-width: 2000px;
+  margin: 0 auto;
+}
+
+.deez {
+  padding: 0 60px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.note-box {
+  background-color: #1e1e1e;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 16px 20px;
+  margin: 20px 0;
+  font-size: 15px;
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  color: #fff;
+}
+
+.note-label {
+  font-weight: 600;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 4px;
+}
+
+
+.important-box {
+  background-color: #2b1e00;
+  border-radius: 10px;
+  border: 1px solid rgba(#a87709);
+  padding: 16px 20px;
+  margin: 20px 0;
+  font-size: 15px;
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  color: #fff;
+}
+
+.important-box-title {
+  font-weight: 600;
+  font-size: 13px;
+  color: rgba(#eba70d);
+  margin-bottom: 4px;
+}
+
+
+.technical-terms {
+  padding: 0 60px;
+  margin-bottom: 40px;
+}
+
+.technical-terms-desc {
+  font-size: 17px;
+  font-weight: 500;
+  font-family: 'Courier New', Courier, monospace;
+  color: #86868b;
+}
+
+.full-width-image-container {
+  width: 100%;
+  padding: 0 60px; /* Match banner padding */
+  margin: 40px 0;   /* Optional: vertical spacing */
+  box-sizing: border-box;
+}
+
+.full-width-image {
+  width: 100%;
+  height: auto;
+  border-radius: 12px; /* Optional: soft corners */
+  display: block;
+}
+
+.custom-divider {
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  margin: 40px 60px; /* Adjust vertical spacing and match horizontal padding */
+}
+
+.space {
+  border: none;
+  margin: 20px 20px; /* Adjust vertical spacing and match horizontal padding */
+}
+
+.callout-box {
+  background-color: #1a1200; /* deep brown background */
+  border: 1px solid #ffaa00; /* orange border */
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin: 20px 60px;
+  font-size: 17px;
+  line-height: 1.6;
+  color: #fff;
+}
+
+.callout-title {
+  font-weight: 600;
+  color: #ffaa00; /* orange title */
+  margin-bottom: 6px;
+  font-family: "Inter Semi Bold", sans-serif;
+}
+
+.link-text {
+  color: #4aa8ff; /* blue links */
+  text-decoration: underline;
+}
+
+.callout-box code {
+  font-family: monospace;
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
+.codeblock-container {
+    background: #1e1e1e;
+    border-radius: 4px;
+    margin-bottom: 40px;
+}
+
+.link-block {
+  font-size: 17px;
+  padding: 20px 60px;
+}
+
+.link-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.link-icon {
+  height: 20px;
+  width: 20px;
+}
+
+
+.link-description {
+  color: #fff;
+  opacity: 0.8;
+  font-size: 17px;
+  font-family: "Inter Medium", sans-serif;
+  margin-left: 32px; /* aligns under link text */
+  margin-top: 4px;
+}
+
+
+/* Code block appearance */
+pre[class*="language-"] {
+  background: #1e1e1e;
+  color: #ccc;
+  font-family: 'Fira Code', 'Courier New', monospace;
+  font-size: 17px;
+}
+
+/* Specific token colors similar to Roblox */
+.token.keyword      { color: #ff5f5f; } /* 'if', 'end', etc. */
+.token.function     { color: #ffd700; } /* 'print' */
+.token.string       { color: #ffffff; } /* "text" */
+.token.comment      { color: #7f7f7f; font-style: italic; }
+.token.number       { color: #9cdcfe; }
+.token.operator     { color: #d4d4d4; }
+.token.variable     { color: #ffffff; }
+
+/* 8. Responsive adjustments */
+@media (max-width: 1024px) {
+  .sidebar {
+    width: 400px;
+  }
+  main {
+    margin-left: 420px;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    overflow-x: auto;
+    gap: 16px;
+  }
+  .sidebar {
+    width: 100%;
+    top: 96px;
+    position: relative;
+    box-shadow: none;
+  }
+  main {
+    margin-left: 0;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 96px;
+}
